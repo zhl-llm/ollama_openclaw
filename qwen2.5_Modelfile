@@ -1,0 +1,11 @@
+# Modelfile for a coding assistant
+FROM qwen2.5:7b
+
+# Set the system prompt
+SYSTEM """You are a knowledgeable and professional AI assistant; please respond accurately, carefully, and meticulously."""
+
+# Set default parameters
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER num_ctx 24576
+PARAMETER num_predict 8192
