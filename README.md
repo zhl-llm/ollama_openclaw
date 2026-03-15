@@ -21,13 +21,13 @@ ollama serve &
 ollama pull qwen3:8b
 ```
 
-### Create model from Modelfile
+### Create custom model from Modelfile
 
 ```sh
 ollama create zhl-assistant -f ./qwen3_Modelfile
 ```
 
-### Run your custom model
+### Run the custom model directly with ollama
 
 ```sh
 ollama run zhl-assistant
@@ -48,6 +48,9 @@ ollama list
 export OLLAMA_KEEP_ALIVE=-1
 ollama launch openclaw --model zhl-assistant
 ```
+
+> Note: the model list for ollama is configured in `~/.ollama/config.json`
+
 ### Restart openclaw gateway
 
 ```sh
