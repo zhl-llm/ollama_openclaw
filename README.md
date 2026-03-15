@@ -1,11 +1,13 @@
-## Start the ollama server and pull LLM
+## Ollama + OpenClaw Local LLM Inference
+
+### Upgrade ollama and openclaw in manual
 
 ```sh
 brew upgrade ollama
 openclaw update OR npm install -g openclaw@latest
 ```
 
-### recycle the memory
+### Recycle the memory in MacOS
 ```sh
 sudo purge
 ```
