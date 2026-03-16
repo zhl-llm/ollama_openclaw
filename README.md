@@ -65,6 +65,13 @@ openclaw gateway restart
 openclaw pairing approve feishu <CODE>
 ```
 
+### Reset the gateway token of openclaw
+
+```sh
+openclaw config set gateway.auth.token <YOUR-TOKEN>
+openclaw gateway restart
+```
+
 ## Reference
 
 ### How to Set Up Ollama for Local LLM Inference
