@@ -13,14 +13,29 @@ sudo purge
 ```
 
 ```sh
+### set the limitation of united memory to 30GBi (30 * 1024 = 30720)
+### will be default once the mac restart
+sudo sysctl iogpu.wired_limit_mb=30720
+
 # Ensure the LLM remains resident in memory
 export OLLAMA_KEEP_ALIVE=-1
 export OLLAMA_NUM_CTX=24576
 export OLLAMA_FLASH_ATTENTION=1
 export OLLAMA_KV_CACHE_TYPE=q8_0
 export OLLAMA_NUM_PARALLEL=2
-ollama serve &
 ollama pull qwen3:8b
+```
+
+To start ollama now and restart at login:
+
+```sh
+  brew services start ollama
+```
+
+Or, if you don't want/need a background service you can just run:
+
+```sh
+  OLLAMA_FLASH_ATTENTION="1" OLLAMA_KV_CACHE_TYPE="q8_0" /opt/homebrew/opt/ollama/bin/ollama serve
 ```
 
 ### Create custom model from Modelfile
@@ -56,6 +71,11 @@ ollama launch openclaw --model zhl-assistant
 ### Restart openclaw gateway
 
 ```sh
+
+# set timeout for openclaw
+openclaw config set agents.defaults.timeoutSeconds 600
+openclaw config set agents.defaults.llm.idleTimeoutSeconds 0
+
 openclaw gateway restart
 ```
 
