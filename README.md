@@ -89,7 +89,14 @@ openclaw pairing approve feishu <CODE>
 
 ```sh
 openclaw config set gateway.auth.token <YOUR-TOKEN>
+openclaw config set agents.defaults.timeoutSeconds 900
 openclaw gateway restart
+```
+
+### Install SKILL
+
+```sh
+openclaw skills install self-improving-agent
 ```
 
 ## Reference
